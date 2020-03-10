@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+body {
+  background-color: black;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -40,8 +44,16 @@
 .flex-container {
   display: flex;
   flex-direction: column;
+}
+
+.main-flex {
   background-image: url('https://img3.goodfon.com/original/1440x900/6/be/canada-antique-map-paper.jpg');
   background-repeat: no-repeat;
+  background-color: yellow;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  width: 100%;
 }
 
 .flex-container > div {
@@ -61,4 +73,14 @@
   background-color: chocolate;
   opacity: 1;
   cursor: pointer;
+}
+
+.province-details {
+  margin-right: 15%;
+  width: 100%;
+  margin: 11px;
+  padding: 5%;
+  background-color: #f1f1f1;
+  text-align: left;
+  opacity: 0.5;
 }
