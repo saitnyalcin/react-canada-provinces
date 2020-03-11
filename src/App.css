@@ -49,7 +49,7 @@ body {
 .main-flex {
   background-image: url('https://img3.goodfon.com/original/1440x900/6/be/canada-antique-map-paper.jpg');
   background-repeat: no-repeat;
-  background-color: yellow;
+
   display: flex;
   flex-direction: row;
   justify-content: right;
