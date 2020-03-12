@@ -49,16 +49,15 @@ body {
 .main-flex {
   background-image: url('https://img3.goodfon.com/original/1440x900/6/be/canada-antique-map-paper.jpg');
   background-repeat: no-repeat;
-
   display: flex;
   flex-direction: row;
-  justify-content: right;
+  justify-content: space-evenly;
   width: 100%;
 }
 
 .flex-container > div {
   background-color: #f1f1f1;
-  width: 18em;
+  width: 100%;
   margin: 11px;
   text-align: center;
   line-height: 1.5em;
@@ -75,13 +74,84 @@ body {
   cursor: pointer;
 }
 
-.province-details {
-  margin-right: 15%;
+.capital {
+  display: flex;
+  flex-direction: column;
+}
+
+.capital > div {
+  background-color: #f1f1f1;
   width: 100%;
   margin: 11px;
-  padding: 5%;
-  background-color: #f1f1f1;
-  text-align: left;
+  text-align: center;
+  line-height: 1.5em;
+  font-size: 1.5em;
   opacity: 0.5;
-  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.capital > div:hover {
+  color: #f1f1f1;
+  background-color: sienna;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.population {
+  display: flex;
+  flex-direction: column;
+}
+
+.population > div {
+  background-color: #f1f1f1;
+  width: 100%;
+  margin: 11px;
+  text-align: center;
+  line-height: 1.5em;
+  font-size: 1.5em;
+  opacity: 0.5;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.population > div:hover {
+  color: black;
+  background-color: cornsilk;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.coordinates {
+  display: flex;
+  flex-direction: column;
+}
+
+.coordinates > div {
+  background-color: #f1f1f1;
+  width: 100%;
+  margin: 11px;
+  text-align: center;
+  line-height: 1.5em;
+  font-size: 1.5em;
+  opacity: 0.5;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.coordinates > div:hover {
+  color: white;
+  background-color: darkgreen;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.coor-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.coor-flex > div {
+  font-size: 1em;
 }

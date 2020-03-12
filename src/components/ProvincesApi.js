@@ -1,48 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Province from './Province';
+import Capitals from './Capitals';
+import Population from './Population';
+import Coordinates from './Coordinates';
 
 export default function ProvinceApi() {
   // holds the state value of the provinces
   const [data, setData] = useState([]);
-  // set the updated state of the details of the hovered province in the list
-  const [capital, setCapital] = useState('Alberta');
-  const [population, setPopulation] = useState('4067175');
-  const [latitude, setLatitude] = useState('53.9332706');
-  const [longitude, setLongtitude] = useState('-116.5765035');
 
-  // assign the static url of the api
-  var ApiRequest =
-    'https://raw.githubusercontent.com/Clavicus/Testing-Requests/master/canadian-provinces.json';
-
-  const updateFieldChanged = index => e => {
-    console.log('index: ' + index);
-    console.log('property name: ' + e.target.value);
+  const fetch = () => {
+    axios
+      .get(
+        'https://raw.githubusercontent.com/Clavicus/Testing-Requests/master/canadian-provinces.json'
+      )
+      .then(result => setData(result.data));
   };
 
   useEffect(() => {
-    axios.get(ApiRequest).then(result => setData(result.data));
-  }, [ApiRequest]);
+    fetch();
+  }, []);
 
   return (
     <div className="main-flex">
       <div className="flex-container">
-        {data.map((item, index) => (
-          <div
-            key={item.name}
-            value={item.name}
-            onMouseOver={updateFieldChanged(index)}
-          >
-            {item.name}
-          </div>
+        {data.map(province => (
+          <Province key={province.name} province={province.name} />
         ))}
       </div>
 
-      <div className="province-details">
-        <div>Capital : {capital}</div>
-        <div>Population : {population}</div>
-        <div>
-          Latitude : {latitude} | Longitude : {longitude}
-        </div>
+      <div className="capital">
+        {data.map(capital => (
+          <Capitals key={capital.name} capital={capital.capital} />
+        ))}
+      </div>
+
+      <div className="population">
+        {data.map(population => (
+          <Population
+            key={population.name}
+            population={population.population}
+          />
+        ))}
+      </div>
+
+      <div className="coordinates">
+        {data.map(coordinate => (
+          <Coordinates
+            key={coordinate.name}
+            latitude={coordinate.latitude}
+            longitude={coordinate.longitude}
+          />
+        ))}
       </div>
     </div>
   );
