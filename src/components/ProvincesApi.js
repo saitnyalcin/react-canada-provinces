@@ -10,9 +10,14 @@ export default function ProvinceApi() {
   const [latitude, setLatitude] = useState('53.9332706');
   const [longitude, setLongtitude] = useState('-116.5765035');
 
-  // assingn the static url of the api
+  // assign the static url of the api
   var ApiRequest =
     'https://raw.githubusercontent.com/Clavicus/Testing-Requests/master/canadian-provinces.json';
+
+  const updateFieldChanged = index => e => {
+    console.log('index: ' + index);
+    console.log('property name: ' + e.target.value);
+  };
 
   useEffect(() => {
     axios.get(ApiRequest).then(result => setData(result.data));
@@ -21,8 +26,14 @@ export default function ProvinceApi() {
   return (
     <div className="main-flex">
       <div className="flex-container">
-        {data.map(item => (
-          <div key={item.name}>{item.name}</div>
+        {data.map((item, index) => (
+          <div
+            key={item.name}
+            value={item.name}
+            onMouseOver={updateFieldChanged(index)}
+          >
+            {item.name}
+          </div>
         ))}
       </div>
 
