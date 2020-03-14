@@ -9,6 +9,7 @@ export default function ProvinceApi() {
   // holds the state value of the provinces
   const [data, setData] = useState([]);
 
+  // using axios data fetching library to retrieve the data from api end point
   const fetch = () => {
     axios
       .get(
