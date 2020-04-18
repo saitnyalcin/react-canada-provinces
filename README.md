@@ -2,4 +2,4 @@
 
 The preview of the application is given below:
 
-<img src="images/canada-provinces.png" />
+<img src="sr/images/canada_provinces.png" />
